@@ -20,5 +20,6 @@ Route::get('/', function () {
 
 Route::get('/login',[PagesController::class,'login'])->name('login');
 Route::get('/student/register',[PagesController::class,'stdreg'])->name('stdreg');
+Route::get('/teacher/register',[PagesController::class,'teacherRegistration'])->name('teacherRegistration');
 
 

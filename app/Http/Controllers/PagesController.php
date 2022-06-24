@@ -13,4 +13,8 @@ class PagesController extends Controller
     function stdreg(){
         return view('auth.student_reg');
     }
+
+    function teacherRegistration(){
+        return view('auth.teacher_reg');
+    }
 }
