@@ -1,13 +1,45 @@
-.nav-item{
+.nav-item {
     margin-right: 1.5rem;
 }
-.sinput{
+.sinput {
     padding: 0.1rem 1rem 0.1rem 1rem;
     border-color: blue;
 }
-.nav-link{
+.nav-link {
     font-size: 1rem;
 }
-.navbar-brand{
+.navbar-brand {
     font-size: 1.8rem;
+}
+
+.imgcontent img {
+    height: 30rem !important;
+}
+
+.caption {
+    background-color: rgba(0, 0, 0, 0.525);
+    height: 10rem;
+}
+
+.logstyle {
+    width: 600px !important;
+}
+
+.loginhere {
+    font-size: 1.8rem;
+    color: white;
+    margin-top: 15px;
+    padding: 10px;
+    height: 10rem;
+    background: #00b4db; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #0083b0,
+        #00b4db
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #0083b0,
+        #00b4db
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
