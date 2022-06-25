@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\StudentAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,9 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/login',[PagesController::class,'login'])->name('login');
+Route::post('/login',[StudentAuthController::class,'stdlogin'])->name('login');
 Route::get('/student/register',[PagesController::class,'stdreg'])->name('stdreg');
+Route::post('/student/register',[StudentAuthController::class,'studentreg'])->name('stdreg');
+Route::get('/student/dashboard',[PagesController::class,'studentdash'])->name('stddash');
 
 
