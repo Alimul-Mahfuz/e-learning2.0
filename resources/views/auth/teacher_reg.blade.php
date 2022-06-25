@@ -36,43 +36,62 @@
 
         <div class="container">
             <form action="" method="post">
+                {{csrf_field()}}
                 <div class="row g-3">
                     <div class="col-md-6">
                         <label for="fname">First name</label>
-                        <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                        <input type="text" value="{{old('fname')}}" name="fname" class="form-control" placeholder="First name" aria-label="First name">
+                        @error('fname')
+                        <span class="text-danger">{{$message}}</span><br>
+                        @enderror
                     </div>
                     <div class="col-md-6">
                         <label for="lname">Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                        <input type="text" value="{{old('lname')}}" name="lname" class="form-control" placeholder="Last name" aria-label="Last name">
+                        @error('lname')
+                        <span class="text-danger">{{$message}}</span><br>
+                        @enderror
                     </div>
                     <div class="col-md-6">
                         <br>
                         <label for="inputEmail4" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="inputEmail4" placeholder="....@gmail.com">
+                        <input type="email" value="{{old('email')}}" name="email" class="form-control" id="inputEmail4" placeholder="....@gmail.com">
+                        @error('email')
+                        <span class="text-danger">{{$message}}</span><br>
+                        @enderror
                     </div>
                     <div class="col-md-6">
                         <br>
                         <label for="inputPhone" class="form-label">Phone</label>
-                        <input type="text" class="form-control" id="inputPhone" placeholder="+880">
+                        <input type="text" value="{{old('phone')}}" name="phone" class="form-control" id="inputPhone" placeholder="+880">
+                        @error('phone')
+                        <span class="text-danger">{{$message}}</span><br>
+                        @enderror
                     </div>
                     <div class="col-md-6">
                         <br>
                         <label for="inputdate" class="form-label">Date of Birth</label>
-                        <input type="date" class="form-control" id="inputdate">
+                        <input type="date" value="{{old('dob')}}" name="dob" class="form-control" id="inputdate">
+                        @error('dob')
+                        <span class="text-danger">{{$message}}</span><br>
+                        @enderror
                     </div>
                     <div class="col-md-6">
                         <br>
                         <label for="inputgender" class="form-label">Gender</label>
-                        <select id="inputgender" class="form-control">
+                        <select id="inputgender" name="gender" class="form-control">
                             <option selected>Choose...</option>
                             <option>Male</option>
                             <option>Female</option>
                         </select>
+                        @error('gender')
+                        <span class="text-danger">{{$message}}</span><br>
+                        @enderror
                     </div>
                     <div class="col-md-6">
                         <br>
                         <label for="inputdegree" class="form-label">Degree</label>
-                        <select id="inputdegree" class="form-control">
+                        <select id="inputdegree" value="{{old('degree')}}" name="degree" class="form-control">
                             <option selected>Choose...</option>
                             <option>Ph.D</option>
                             <option>MSc</option>
@@ -80,21 +99,30 @@
                             <option>MBA</option>
                             <option>BBA</option>
                         </select>
+                        @error('degree')
+                        <span class="text-danger">{{$message}}</span><br>
+                        @enderror
                     </div>
                     <div class="col-md-6">
                         <br>
                         <label for="inputAddress" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="House No:xx, Road No:xx">
+                        <input type="text" value="{{old('address')}}" name="address" class="form-control" id="inputAddress" placeholder="House No:xx, Road No:xx">
+                        @error('address')
+                        <span class="text-danger">{{$message}}</span><br>
+                        @enderror
                     </div>
                     <div class="col-md-6">
                         <br>
                         <label for="inputCity" class="form-label">City</label>
-                        <input type="text" class="form-control" id="inputCity">
+                        <input type="text" value="{{old('city')}}" name="city" class="form-control" id="inputCity">
+                        @error('city')
+                        <span class="text-danger">{{$message}}</span><br>
+                        @enderror
                     </div>
                     <div class="col-md-4">
                         <br>
                         <label for="inputState" class="form-label">Division</label>
-                        <select id="inputState" class="form-control">
+                        <select id="inputState" value="{{old('division')}}" name="division" class="form-control">
                             <option selected>Choose...</option>
                             <option>Dhaka</option>
                             <option>Khulna</option>
@@ -105,33 +133,50 @@
                             <option>Sylhet</option>
                             <option>Rangpur</option>
                         </select>
+                        @error('division')
+                        <span class="text-danger">{{$message}}</span><br>
+                        @enderror
                     </div>
                     <div class="col-md-2">
                         <br>
                         <label for="inputZip" class="form-label">Zip</label>
-                        <input type="text" class="form-control" id="inputZip">
+                        <input type="text" value="{{old('zip')}}" name="zip" class="form-control" id="inputZip">
+                        @error('zip')
+                        <span class="text-danger">{{$message}}</span><br>
+                        @enderror
                     </div>
                     <div class="col-md-6">
                         <br>
                         <label for="inputPassword4" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="inputPassword4" placeholder="password">
+                        <input type="password" value="{{old('password')}}" name="password" class="form-control" id="inputPassword4" placeholder="password">
+                        @error('password')
+                        <span class="text-danger">{{$message}}</span><br>
+                        @enderror
                     </div>
                     <div class="col-md-6">
                         <br>
                         <label for="inputconfirmPassword4" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="inputconfirmPassword4" placeholder="confirm password">
+                        <input type="password" value="{{old('con_password')}}" name="con_password" class="form-control" id="inputconfirmPassword4" placeholder="confirm password">
+                        @error('con_password')
+                        <span class="text-danger">{{$message}}</span><br>
+                        @enderror
                     </div>
-                    <div class="col-md--12">
+                    <div class="col-12">
                         <div class="form-check">
                             <br>
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                            <label class="form-check-label" for="gridCheck">
-                                Check me out
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                            <label class="form-check-label" for="invalidCheck">
+                                Agree to terms and conditions
+                            </label>
+                            <div class="invalid-feedback">
+                                You must agree before submitting.
+                            </div>
                         </div>
-                        <div class="col-auto">
-                            <br>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <br>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
             </form>
         </div>
 
