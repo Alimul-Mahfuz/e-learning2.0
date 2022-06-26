@@ -63,4 +63,22 @@ class teacherController extends Controller
         return redirect()->route('teacherHome');
     }
 
+    function loginSubmit(Request $req)
+    {
+        $this->validate(
+            $req,
+            [
+                "email" => "required",
+                "password" => "required"
+            ],
+        );
+
+        $t = new Teacher();
+        $acc = $t::where('email', $req->email)->where('password', $req->password)->value('email');
+        if (!empty($user)) {
+            return view('teacherHome');
+        } else {
+            return "wrong password";
+        }
+    }
 }
