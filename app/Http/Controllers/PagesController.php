@@ -17,4 +17,12 @@ class PagesController extends Controller
     function studentdash(){
         return view ('student.stddash');
     }
+    
+    function studentlogout(){
+        if(session()->has('username')&&session()->has('email')){
+            session()->pull('username');
+            session()->pull('email');
+        }
+        return redirect()->route('home');
+    }
 }

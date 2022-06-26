@@ -24,5 +24,6 @@ Route::post('/login',[StudentAuthController::class,'stdlogin'])->name('login');
 Route::get('/student/register',[PagesController::class,'stdreg'])->name('stdreg');
 Route::post('/student/register',[StudentAuthController::class,'studentreg'])->name('stdreg');
 Route::get('/student/dashboard',[PagesController::class,'studentdash'])->name('stddash');
+Route::get('/student/logout',[PagesController::class,'studentlogout'])->name('stdlogout');
 
 
