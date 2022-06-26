@@ -14,7 +14,7 @@ class StudentAuthController extends Controller
             [
                 'fname'=>'required|regex:/^[a-zA-Z]+$/u|max:15',
                 'lname'=>'required|regex:/^[a-zA-Z]+$/u|max:15',
-                'email' => 'required|email:rfc,dns',
+                'email' => 'required|email:rfc,dns|unique:accounts',
                 'phone'=>'required|regex:/^\+[8]{2}[0-9]{11}+$/i',
                 'pass'=>'required',
                 'confpass'=>'required|same:pass',
@@ -45,29 +45,15 @@ class StudentAuthController extends Controller
         $student=new Student;
         $student->student_name=$req->fname.' '.$req->lname;
         $student->email=$req->email;
+        // $student->account()->email=$req->email;
+        // $student->account()->password=$req->pass;
         $student->address=$address;
         $student->account_id=$actid->account_id;
         $student->save();
         //Redirecting the user to the student dashboard
+        $req->session()->put('username', $stdinfo->student_name);
+        $req->session()->put('email', $stdinfo->email);
         return redirect()->route('stddash');
 
     }
-
-    function stdlogin(Request $req){
-        $validated=$req->validate(
-            [
-                'email' => 'required|email:rfc,dns',
-                'pass'=>'required',
-            ],
-            );
-        $acct=Account::where('email',$req->email)->where('password',$req->pass)->first();
-        //checking if the $acct array is empty or not if empty the input email and password not exists in the database
-        if(!empty($acct)){
-            return redirect()->route('stddash');
-        }
-        else{
-            return \back();
-        }
-    }
-
 }

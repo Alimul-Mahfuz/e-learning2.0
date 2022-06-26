@@ -11,4 +11,8 @@ class Student extends Model
     protected $table = 'students';
     protected $primaryKey = 'student_id';
     public $timestamps = false;
+
+    function account(){
+        return $this->hasOne(Account::class,'account_id','student_id');
+    }
 }
