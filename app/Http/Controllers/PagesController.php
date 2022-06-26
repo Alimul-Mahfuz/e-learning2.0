@@ -15,8 +15,6 @@ class PagesController extends Controller
         return view('auth.student_reg');
     }
 
-<<<<<<< HEAD
-=======
     function studentdash(){
         return view ('student.stddash');
     }
@@ -28,5 +26,4 @@ class PagesController extends Controller
         }
         return redirect()->route('home');
     }
->>>>>>> origin/student-cookies-session
 }
