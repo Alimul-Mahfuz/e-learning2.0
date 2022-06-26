@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('instractors', function (Blueprint $table) {
             $table->id('instractor_id');
             $table->string('instractor_name');
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('gender');
             $table->string('address')->nullable();
             $table->integer('phone');

@@ -1,3 +1,4 @@
+
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid d-flex">
       <a class="navbar-brand" href="#">E-Learning</a>
@@ -15,10 +16,16 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Pricing</a>
           </li>
-          <form class="d-flex">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a style="color: white" class="nav-link btn btn-danger" href="{{route('stdlogout')}}">Logout</a>
+          </li>
+          {{-- <form class="d-flex">
             <input class="form-control sinput me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-primary" type="submit">Search</button>
-          </form>
+          </form> --}}
         </ul>
       </div>
     </div>

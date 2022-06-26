@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class PagesController extends Controller
 {
@@ -16,5 +17,13 @@ class PagesController extends Controller
 
     function studentdash(){
         return view ('student.stddash');
+    }
+    
+    function studentlogout(){
+        if(session()->has('username')&&session()->has('email')){
+            session()->pull('username');
+            session()->pull('email');
+        }
+        return redirect()->route('home');
     }
 }
