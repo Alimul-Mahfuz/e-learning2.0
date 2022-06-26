@@ -56,26 +56,4 @@ class StudentAuthController extends Controller
         return redirect()->route('stddash');
 
     }
-
-    function stdlogin(Request $req){
-        $validated=$req->validate(
-            [
-                'email' => 'required|email:rfc,dns',
-                'pass'=>'required',
-            ],
-            );
-        $acct=Account::where('email',$req->email)->where('password',$req->pass)->first();
-        //checking if the $acct array is empty or not if empty the input email and password not exists in the database
-
-        if(!empty($acct)){
-            $stdinfo=Student::where('account_id',$acct->account_id)->first();
-            $req->session()->put('username', $stdinfo->student_name);
-            $req->session()->put('email', $stdinfo->email);
-            return redirect()->route('stddash');
-        }
-        else{
-            return \back()->with('Faild','Login Faild email or password error');
-        }
-    }
-
 }
