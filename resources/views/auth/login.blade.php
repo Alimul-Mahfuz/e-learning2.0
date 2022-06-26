@@ -16,21 +16,30 @@
             Login Here
         </div>
         <div class="flexcontainer">
-            <form class="my-5">
+            <form class="my-5" method="post" action="#">
+              @csrf
                 <div class="form-group my-3">
                   <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control logstyle" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <input type="email" class="form-control logstyle" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value="{{old('email')}}" placeholder="Enter email">
+                  @error('email')
+                  <span class="text-danger">{{$message}}</span><br>
+                      
+                  @enderror
                   <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div class="form-group my-3">
                   <label for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control logstyle" id="exampleInputPassword1" placeholder="Password">
+                  <input type="password" value="{{old('pass')}}" name='pass' class="form-control logstyle" id="exampleInputPassword1" placeholder="Password">
+                  @error('pass')
+                  <span class="text-danger">{{$message}}</span>
+                      
+                  @enderror
                 </div>
                 <div class="form-check">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">
                   <label class="form-check-label" for="exampleCheck1">Remember Me</label>
                 </div>
-                <button type="submit" class="btn btn-primary my-3">Login</button>
+                <button type="submit" name="btn-login" class="btn btn-primary my-3">Login</button>
 
                 <div class="noaccount">
                     Don't have an account yet?

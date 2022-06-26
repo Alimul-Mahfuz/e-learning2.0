@@ -20,7 +20,6 @@
     background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
     </style>
     <title>Registration | Thanks for choosing us</title>
 </head>
@@ -31,45 +30,70 @@
             Register Here
         </div>
         <div class="flexcontainer">
-            <form>
+            <form action="#" method="post">
+              @csrf
                 <div class="form-row my-3">
                 <div class="form-group col-md-6">
                     <label for="inputfname">First name</label>
-                    <input type="text" class="form-control" id="" placeholder="First name">
+                    <input type="text" value="{{old('fname')}}" name='fname' class="form-control" id="" placeholder="First name">
+                    @error('fname')
+                        <span class='text-danger'>{{$message}}</span>
+                    @enderror
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputlname">Last Name</label>
-                    <input type="text" class="form-control" id="" placeholder="Last name">
+                    <input type="text" value="{{old('lname')}}" name="lname" class="form-control" id="" placeholder="Last name">
+                    @error('lname')
+                    <span class='text-danger'>{{$message}}</span>
+                    @enderror
                 </div>
                   <div class="form-group col-md-6">
                     <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    <input type="email" value="{{old('email')}}" name="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    @error('email')
+                    <span class='text-danger'>{{$message}}</span>
+                    @enderror
                   </div>
                   <div class="form-group col-md-6">
                     <label for="phone">Phone</label>
-                    <input type="text" class="form-control" id="phone" placeholder="Phone">
+                    <input type="text" value="{{old('phone')}}" name="phone" class="form-control" id="phone" placeholder="+880">
+                    @error('phone')
+                    <span class='text-danger'>{{$message}}</span>
+                    @enderror
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                    <input type="password" name="pass" class="form-control" id="inputPassword4" placeholder="Password">
+                    @error('pass')
+                    <span class='text-danger'>{{$message}}</span>
+                    @enderror
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputfPassword4">Confirm Password</label>
-                    <input type="password" class="form-control" id="inputfPassword4" placeholder="Confirm Password">
+                    <input type="password" name="confpass" class="form-control" id="inputfPassword4" placeholder="Confirm Password">
+                    @error('confpass')
+                    <span class='text-danger'>{{$message}}</span>
+                    @enderror
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputAddress">Address</label>
-                  <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                  <input type="text" name="address" value="{{old('address')}}" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                  @error('address')
+                  <span class='text-danger'>{{$message}}</span>
+                  @enderror
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
+                    <input type="text" name="city" value="{{old('city')}}" class="form-control" id="inputCity">
+                    @error('city')
+                    <span class='text-danger'>{{$message}}</span>
+                    @enderror
                   </div>
                   <div class="form-group col-md-4">
                     <label for="inputState">Division</label>
-                    <select id="inputState" class="form-control">
+                    <select id="inputState" value='{{old('division')}}' name="division" class="form-control">
                       <option selected>Choose...</option>
                       <option>Dhaka</option>
                       <option>Chattagram</option>
@@ -82,10 +106,13 @@
                   </div>
                   <div class="form-group col-md-2">
                     <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
+                    <input type="text" value="{{old('zip')}}" name="zip" class="form-control" id="inputZip">
+                    @error('zip')
+                    <span class='text-danger'>{{$message}}</span>
+                    @enderror
                   </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Sign in</button>
+                <button type="submit" name="btn-reg" class="btn btn-primary">Sign in</button>
               </form>
         </div>
     </div>

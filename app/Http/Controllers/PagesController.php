@@ -15,4 +15,10 @@ class PagesController extends Controller
         return view('auth.student_reg');
     }
 
+<<<<<<< HEAD
+=======
+    function studentdash(){
+        return view ('student.stddash');
+    }
+>>>>>>> 4c4d19a601ab6f43a00c27d9465fb7ba81c39ba3
 }
