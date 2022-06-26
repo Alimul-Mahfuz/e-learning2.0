@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\teacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,8 @@ Route::get('/', function () {
 
 Route::get('/login',[PagesController::class,'login'])->name('login');
 Route::get('/student/register',[PagesController::class,'stdreg'])->name('stdreg');
-Route::get('/teacher/register',[PagesController::class,'teacherRegistration'])->name('teacherRegistration');
-Route::post('/teacher/register',[pagesController::class,'createSubmit'])->name('CreateSubmit');
+Route::get('/teacher/register',[teacherController::class,'teacherRegistration'])->name('teacherRegistration');
+Route::post('/teacher/register',[teacherController::class,'createSubmit'])->name('CreateSubmit');
+Route::get('/teacher/home',[teacherController::class,'teacherHome'])->name('teacherHome');
 
 

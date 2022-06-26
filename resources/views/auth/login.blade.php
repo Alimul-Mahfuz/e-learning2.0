@@ -36,6 +36,12 @@
                     Don't have an account yet?
                     <a href="{{route('stdreg')}}">Register Here</a>
                 </div>
+
+                <br>
+                <div class="noaccount">
+                    Don't have an account yet?
+                    <a href="{{route('teacherRegistration')}}">Teacher Register Here</a>
+                </div>
               </form>
         </div>
     </div>

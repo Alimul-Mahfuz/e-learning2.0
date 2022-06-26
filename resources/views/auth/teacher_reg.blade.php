@@ -79,11 +79,10 @@
                     <div class="col-md-6">
                         <br>
                         <label for="inputgender" class="form-label">Gender</label>
-                        <select id="inputgender" name="gender" class="form-control">
-                            <option selected>Choose...</option>
-                            <option>Male</option>
-                            <option>Female</option>
-                        </select>
+                        <br>
+                        <input type="radio" name="gender" value="male">Male
+                        <input type="radio" name="gender" value="female">Female
+                        <input type="radio" name="gender" value="other">Other
                         @error('gender')
                         <span class="text-danger">{{$message}}</span><br>
                         @enderror
@@ -175,7 +174,11 @@
                     </div>
                     <div class="col-auto">
                         <br>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-info">Sign Up</button>
+                        <div class="account">
+                            <br>
+                            <a href="{{route('login')}}">Already have an account?</a>
+                        </div>
                     </div>
             </form>
         </div>
