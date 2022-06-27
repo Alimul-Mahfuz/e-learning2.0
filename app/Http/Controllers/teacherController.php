@@ -81,4 +81,9 @@ class teacherController extends Controller
             return "wrong password";
         }
     }
+
+    function logout(){
+        session()->forget('user');
+        return redirect()->route('login');
+    }
 }
