@@ -36,7 +36,7 @@ class AuthController extends Controller
             }
         }
         else{
-            return \back()->with('Faild','Login Faild email or password error');
+            return back()->with('Faild','Login Faild email or password error');
         }
         
     }
