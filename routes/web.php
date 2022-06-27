@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\teacherController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\StudentAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,9 @@ Route::get('/student/register',[PagesController::class,'stdreg'])->name('stdreg'
 Route::post('/student/register',[StudentAuthController::class,'studentreg'])->name('stdreg');
 Route::get('/student/dashboard',[PagesController::class,'studentdash'])->name('stddash');
 Route::get('/student/logout',[PagesController::class,'studentlogout'])->name('stdlogout');
+Route::get('/student/profile',[StudentAuthController::class,'StdviewProfile'])->name('stdprofile');
+Route::post('/student/changepass',[StudentAuthController::class,'changepassword'])->name('chngpass');
+Route::get('/student/changepass',[PagesController::class,'changepassword'])->name('chngpass');
 
 
 
