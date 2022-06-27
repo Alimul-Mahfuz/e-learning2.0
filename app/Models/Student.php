@@ -13,6 +13,6 @@ class Student extends Model
     public $timestamps = false;
 
     function account(){
-        return $this->hasOne(Account::class,'account_id','student_id');
+        return $this->belongsTo(Account::class,'account_id','student_id');
     }
 }

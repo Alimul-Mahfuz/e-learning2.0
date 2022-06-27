@@ -40,20 +40,54 @@ class StudentAuthController extends Controller
         $account->save();
         //retriving the account_id from account table and save as foreign key 
         $actid=Account::where('email', $req->email)->first();
-
-        
         $student=new Student;
         $student->student_name=$req->fname.' '.$req->lname;
         $student->email=$req->email;
-        // $student->account()->email=$req->email;
-        // $student->account()->password=$req->pass;
+        $student->account()->email=$req->email;
+        $student->account()->password=$req->pass;
         $student->address=$address;
         $student->account_id=$actid->account_id;
-        $student->save();
+        // $account->student()->save($student);
+
+        $stdinfo=Student::where('email',$req->email)->first();
+        
         //Redirecting the user to the student dashboard
         $req->session()->put('username', $stdinfo->student_name);
         $req->session()->put('email', $stdinfo->email);
         return redirect()->route('stddash');
+
+    }
+
+    function StdviewProfile(){
+        $stdinfo=Student::where('email',session('email'))->first();
+        return view('student.stdprofile')->with('data',$stdinfo);
+        // return 'hello profile';
+
+    }
+
+    function changepassword(Request $req){
+        $acc=Account::where('email',session('email'))->first();
+        $validated=$req->validate(
+            [   
+                'oldpass'=>'required',
+                'newpass'=>'required',
+                'confnewpass'=>'required|same:newpass',
+            ],
+            [
+                'confnewpass'=>'Password should match'
+                
+            ]
+            );
+            if($req->oldpass==$acc->password){
+                $acc->password=$req->confnewpass;
+                $acc->save();
+                return redirect('/student/profile')->with('status', 'Password updated!');
+            }
+            else{
+                return back()->with('chngfaild', 'Old password is incorrect!');
+            }
+        
+
 
     }
 }
