@@ -5,6 +5,12 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\teacherController;
 use App\Http\Controllers\AuthController;
 
+// Coordinator start
+
+use App\Http\Controllers\coor_controller;
+
+// Coordinator end
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,5 +39,22 @@ Route::get('/student/logout',[PagesController::class,'studentlogout'])->name('st
 Route::get('/teacher/register',[teacherController::class,'teacherRegistration'])->name('teacherRegistration');
 Route::post('/teacher/register',[teacherController::class,'createSubmit'])->name('CreateSubmit');
 Route::get('/teacher/home',[teacherController::class,'teacherHome'])->name('teacherHome');
+
+
+
+
+
+// Coordinator start
+
+Route::get('/Coordinator/register',[coor_controller::class,'fill_register'])->name('fill_register');
+Route::post('/Coordinator/register',[coor_controller::class,'submit_register'])->name('submit_register');
+Route::get('/Coordinator/home',[coor_controller::class,'coor_home'])->name('coor_home');
+
+// Coordinator end
+
+
+
+
+
 
 

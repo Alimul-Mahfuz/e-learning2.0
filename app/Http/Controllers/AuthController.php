@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Account;
 use App\Models\Teacher;
+use App\Models\Coordinator;
 
 class AuthController extends Controller
 {
@@ -34,6 +35,15 @@ class AuthController extends Controller
                 $req->session()->put('email', $teacherinfo->email);
                 return redirect()->route('teacherHome');
             }
+
+            // For Coordinator login
+            if($acct->type==4){
+                $teacherinfo=Coordinator::where('account_id',$acct->account_id)->first();
+                // $req->session()->put('username', $coor_info->coor_name);
+                // $req->session()->put('email', $coor_info->email);
+                return redirect()->route('coor_home');
+            }
+            
         }
         else{
             return \back()->with('Faild','Login Faild email or password error');
