@@ -82,8 +82,15 @@ class teacherController extends Controller
         }
     }
 
-    function logout(){
+    function logout()
+    {
         session()->forget('user');
         return redirect()->route('login');
+    }
+
+    function teacherProfile(Request $req)
+    {
+        $teacherinfo = Teacher::where('email', session('email'))->first();
+        return view('Teacher.Teacher_Profile')->with('data',$teacherinfo);
     }
 }

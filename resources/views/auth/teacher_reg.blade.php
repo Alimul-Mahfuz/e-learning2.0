@@ -80,9 +80,9 @@
                         <br>
                         <label for="inputgender" class="form-label">Gender</label>
                         <br>
-                        <input type="radio" name="gender" value="male">Male
-                        <input type="radio" name="gender" value="female">Female
-                        <input type="radio" name="gender" value="other">Other
+                        <input type="radio" name="gender" value="Male">Male
+                        <input type="radio" name="gender" value="Female">Female
+                        <input type="radio" name="gender" value="Other">Other
                         @error('gender')
                         <span class="text-danger">{{$message}}</span><br>
                         @enderror

@@ -26,6 +26,7 @@ Route::get('/student/register',[PagesController::class,'stdreg'])->name('stdreg'
 Route::get('/teacher/register',[teacherController::class,'teacherRegistration'])->name('teacherRegistration');
 Route::post('/teacher/register',[teacherController::class,'createSubmit'])->name('CreateSubmit');
 Route::get('/teacher/home',[teacherController::class,'teacherHome'])->name('teacherHome');
-Route::get('/logout',[teacherController::class,'logout']);
+Route::get('/logout',[teacherController::class,'logout'])->name('tlogout');
+Route::get('/teacher/Profile',[teacherController::class,'teacherProfile'])->name('teacherProfile');
 
 
