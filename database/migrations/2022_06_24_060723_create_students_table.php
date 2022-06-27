@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->unsignedBigInteger('account_id');
             $table->string('profile_image')->nullable();
-            $table->foreign('account_id')->references('account_id')->on('accounts');
+            $table->foreign('account_id')->references('account_id')->on('accounts')->onDelete('cascade');
         });
     }
 
