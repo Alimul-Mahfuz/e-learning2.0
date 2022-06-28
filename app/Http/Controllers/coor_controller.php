@@ -28,6 +28,7 @@ class coor_controller extends Controller
     function submit_register(Request $req)
     {
 
+
         $this->validate(
             $req,
             [
@@ -44,9 +45,18 @@ class coor_controller extends Controller
                 "zip" => "required|",
                 "password" => "required|string|min:8",
                 "con_password" => "required|same:password",
+                "pro_pic" =>"required|mimes:pdf,jpg",
                 "type" => "required"
             ],
         );
+
+
+        $name =  $req->file('pro_pic')->getClientOriginalName();
+        $ext = $req->file('pro_pic')->getClientOriginalExtension();
+        $path = "profile_images/";
+        $file_name  = time()."_$name";
+        $req->file('pro_pic')->storeAs('public/'.$path,$file_name);
+        // $req->file('pro_pic')->store('profile_images');
 
 
         $acc = new Account();
@@ -66,9 +76,27 @@ class coor_controller extends Controller
         $address = $req->address . $req->city . $req->division . $req->zip;
         $t->address = $address;
         $t->account_id = $accid->account_id;
+        $t->profile_image = 'storage/app/public/'.$path.$file_name;
         $t->save();
 
-        return redirect()->route('coor_home');
+        return redirect()->route('login');
+    }
+
+
+    // Coordinator profile
+    function coor_profile(Request $req)
+    {
+        // $coordinator = coordinator::where("email", session("email") )->first();
+        $coordinator = coordinator::where("email", session("email") )->first();
+        return view("coordinator.coor_profile")
+                ->with("coordinator", $coordinator);
+    }
+
+
+    function logout()
+    {
+        session()->forget('user');
+        return redirect()->route('login');
     }
 
     // function submit_login(Request $req)

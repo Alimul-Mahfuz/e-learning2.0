@@ -26,7 +26,8 @@ return new class extends Migration
             // $table->string('degree');
             $table->string('address')->nullable();
             $table->unsignedBigInteger('account_id');
-            $table->string('profile_image')->nullable();
+            // $table->string('profile_image')->nullable();
+            $table->string('profile_image');
             $table->foreign('account_id')->references('account_id')->on('accounts');
             $table->timestamps();
 

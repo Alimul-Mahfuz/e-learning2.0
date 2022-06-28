@@ -1,0 +1,1 @@
+coor_student_list.blade.php

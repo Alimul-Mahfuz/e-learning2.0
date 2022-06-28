@@ -35,7 +35,7 @@
         <br>
 
         <div class="container">
-            <form action="" method="post">
+            <form action="" method="post"  enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="row g-3">
                     <div class="col-md-6">
@@ -157,6 +157,16 @@
                         <label for="inputconfirmPassword4" class="form-label">Confirm Password</label>
                         <input type="password" value="{{old('con_password')}}" name="con_password" class="form-control" id="inputconfirmPassword4" placeholder="confirm password">
                         @error('con_password')
+                        <span class="text-danger">{{$message}}</span><br>
+                        @enderror
+                    </div>
+
+                    <!-- Profile pic -->
+                    <div class="col-md-6">
+                        <br>
+                        <label  class="form-label">Upload Image</label>
+                        <input type="file" value="{{old('pro_pic')}}" name="pro_pic" class="form-control" id="pro_pic" placeholder="Set a profile picture">
+                        @error('pro_pic')
                         <span class="text-danger">{{$message}}</span><br>
                         @enderror
                     </div>
