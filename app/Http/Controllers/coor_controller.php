@@ -45,7 +45,7 @@ class coor_controller extends Controller
                 "zip" => "required|",
                 "password" => "required|string|min:8",
                 "con_password" => "required|same:password",
-                "pro_pic" =>"required|mimes:pdf,jpg",
+                "pro_pic" =>"required|mimes:png,jpg,gif",
                 "type" => "required"
             ],
         );
@@ -56,7 +56,6 @@ class coor_controller extends Controller
         $path = "profile_images/";
         $file_name  = time()."_$name";
         $req->file('pro_pic')->storeAs('public/'.$path,$file_name);
-        // $req->file('pro_pic')->store('profile_images');
 
 
         $acc = new Account();
@@ -76,7 +75,7 @@ class coor_controller extends Controller
         $address = $req->address . $req->city . $req->division . $req->zip;
         $t->address = $address;
         $t->account_id = $accid->account_id;
-        $t->profile_image = 'storage/app/public/'.$path.$file_name;
+        $t->profile_image = 'storage/'.$path.$file_name;
         $t->save();
 
         return redirect()->route('login');
@@ -87,7 +86,7 @@ class coor_controller extends Controller
     function coor_profile(Request $req)
     {
         // $coordinator = coordinator::where("email", session("email") )->first();
-        $coordinator = coordinator::where("email", session("email") )->first();
+        $coordinator = coordinator::where("email", session("coordinatorEmail") )->first();
         return view("coordinator.coor_profile")
                 ->with("coordinator", $coordinator);
     }
@@ -95,7 +94,8 @@ class coor_controller extends Controller
 
     function logout()
     {
-        session()->forget('user');
+        // session()->forget('coordinatorEmail','coodinatorName');
+        session()->flush();
         return redirect()->route('login');
     }
 

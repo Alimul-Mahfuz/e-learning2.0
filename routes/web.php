@@ -49,7 +49,7 @@ Route::get('/teacher/home',[teacherController::class,'teacherHome'])->name('teac
 Route::get('/Coordinator/register',[coor_controller::class,'fill_register'])->name('fill_register');
 Route::post('/Coordinator/register',[coor_controller::class,'submit_register'])->name('submit_register');
 Route::get('/Coordinator/home',[coor_controller::class,'coor_home'])->name('coor_home');
-Route::get('/Coordinator/coor_profile',[coor_controller::class,'coor_profile'])->name('coor_profile');
+Route::get('/Coordinator/coor_profile',[coor_controller::class,'coor_profile'])->name('coor_profile')->middleware("logincheck");
 Route::get('/logout',[coor_controller::class,'logout'])->name('logout');
 
 // Coordinator end

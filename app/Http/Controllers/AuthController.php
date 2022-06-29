@@ -39,8 +39,8 @@ class AuthController extends Controller
             // For Coordinator login
             if($acct->type==4){
                 $coor_info=Coordinator::where('account_id',$acct->account_id)->first();
-                $req->session()->put('username', $coor_info->coor_name);
-                $req->session()->put('email', $coor_info->email);
+                $req->session()->put('coordinatorName', $coor_info->coor_name);
+                $req->session()->put('coordinatorEmail', $coor_info->email);
                 return redirect()->route('coor_home');
             }
             

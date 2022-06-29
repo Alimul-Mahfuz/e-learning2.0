@@ -1,5 +1,12 @@
 @extends('layouts.coordinator_nav')
 @section('content')
 
-<p>Hello Coordinator</p>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<h1>Welcome {{session('coordinatorName')}}</h1>
+	</body>
+</html>
 @endsection
