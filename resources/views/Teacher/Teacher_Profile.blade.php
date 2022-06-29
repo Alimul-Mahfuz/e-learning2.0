@@ -35,37 +35,26 @@
         <br>
     </div>
 
-    
-        <div class="row">
+
+    <div class="row">
         <div class="col-sm-2 mx-6 container">
 
-<img class="d-block m-auto border img-fluid rounded-circle" src="https://avatars.githubusercontent.com/u/72210986?v=4" alt="">
-<br>
-<input class="btn btn-primary mx-5" type="submit" value="Upload Profile">
-</div>
-            <div class="col-md-6 container">
-                <ul class="list-group col-md-8 ">
-                    <li class="list-group-item">Name: {{$data->teacher_name}}</li>
-                    <li class="list-group-item">Email: {{$data->email}}</li>
-                    <li class="list-group-item">Phone: {{$data->phone}}</li>
-                    <li class="list-group-item">Date of Birth: {{$data->dob}}</li>
-                    <li class="list-group-item">Gender: {{$data->gender}}</li>
-                    <li class="list-group-item">Address: {{$data->address}}</li>
-                    
-                </ul>
-            </div>
-
-            
-                
+            <img class="d-block m-auto border img-fluid rounded-circle" src="https://avatars.githubusercontent.com/u/72210986?v=4" alt="">
+            <br>
+            <input class="btn btn-primary mx-5" type="submit" value="Upload Profile">
         </div>
-    
-    
+        <div class="col-md-6 container">
+            <ul class="list-group col-md-8 ">
+                <li class="list-group-item">Name: {{$data->teacher_name}}</li>
+                <li class="list-group-item">Email: {{$data->email}}</li>
+                <li class="list-group-item">Phone: {{$data->phone}}</li>
+                <li class="list-group-item">Date of Birth: {{$data->dob}}</li>
+                <li class="list-group-item">Gender: {{$data->gender}}</li>
+                <li class="list-group-item">Address: {{$data->address}}</li>
 
-
-
-
-
-
+            </ul>
+        </div>
+    </div>
 </body>
 
 </html>

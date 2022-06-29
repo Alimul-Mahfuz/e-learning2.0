@@ -10,4 +10,8 @@ class Teacher extends Model
     use HasFactory;
     protected $table='teachers';
     protected $primaryKey='teacher_id';
+
+    function account(){
+        return $this->hasOne(Account::class,'account_id','account_id');
+    }
 }

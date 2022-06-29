@@ -27,6 +27,6 @@ Route::get('/teacher/register',[teacherController::class,'teacherRegistration'])
 Route::post('/teacher/register',[teacherController::class,'createSubmit'])->name('CreateSubmit');
 Route::get('/teacher/home',[teacherController::class,'teacherHome'])->name('teacherHome');
 Route::get('/logout',[teacherController::class,'logout'])->name('tlogout');
-Route::get('/teacher/Profile',[teacherController::class,'teacherProfile'])->name('teacherProfile');
-
-
+Route::get('/teacher/Profile',[teacherController::class,'teacherProfile'])->name('teacherProfile')->middleware('teache.profile');
+Route::get('/teacher/changepassword',[teacherController::class,'teacherChangepassword'])->name('teacherChangepassword')->middleware('teache.profile');
+Route::post('/teacher/changepassword',[teacherController::class,'teacherUpdatepassword'])->name('teacherUpdatepassword')->middleware('teache.profile');
