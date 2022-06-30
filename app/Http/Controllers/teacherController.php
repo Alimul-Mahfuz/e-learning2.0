@@ -5,7 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Teacher;
 use App\Models\Account;
 use App\Models\Qualification;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class teacherController extends Controller
 {
@@ -63,22 +68,62 @@ class teacherController extends Controller
         return redirect()->route('teacherHome');
     }
 
-    function loginSubmit(Request $req)
+    function logout()
     {
-        $this->validate(
-            $req,
-            [
-                "email" => "required",
-                "password" => "required"
-            ],
-        );
+        session()->forget('username');
+        session()->forget('email');
+        session()->forget('account_id');
+        return redirect()->route('login');
+    }
 
-        $t = new Teacher();
-        $acc = $t::where('email', $req->email)->where('password', $req->password)->value('email');
-        if (!empty($user)) {
-            return view('teacherHome');
+    function teacherProfile(Request $req)
+    {
+        $teacherinfo = Teacher::where('email', session('email'))->first();
+        return view('Teacher.Teacher_Profile')->with('data', $teacherinfo);
+    }
+
+    function teacherChangepassword()
+    {
+        return view('Teacher.Change_Password');
+    }
+
+    public function teacherUpdatepassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required',
+            'password' => 'required|min:6|max:12|string|confirmed',
+            'password_confirmation' => 'required',
+        ]);
+
+        $user = Account::find(session('account_id'))->first();
+
+        if ($request->current_password === $user->password) {
+            $user->password = $request->password_confirmation;
+            $user->save();
+
+            return redirect()->route('teacherProfile')->with('Success', 'Password Changed Successfully');
         } else {
-            return "wrong password";
+            return redirect()->back()->with('error', 'Current Password Not Matched!');
         }
+    }
+
+    function profilePicturesubmit(Request $req)
+    {
+        $this->validate($req, [
+            "profile_image" => "required|image|mimes:jpeg,png,jpg,gif,svg"
+        ]);
+
+        $teacherinfo = Teacher::where('email', session('email'))->first();
+
+        $name =  $req->file('profile_image')->getClientOriginalName();
+        $name =  'Teacher_id' . $teacherinfo->account_id;
+        //dd($teacherinfo);
+        $ext = $req->file('profile_image')->getClientOriginalExtension();
+        $path = "profile_images/";
+        $file_name  = time() . "_$name." . $ext;
+        $req->file('profile_image')->storeAs('public/' . $path, $file_name);
+        $teacherinfo->profile_image = 'storage/' . $path . $file_name;
+        $teacherinfo->save();
+        return redirect()->route('teacherProfile')->with('img_path', $teacherinfo->profile_image);
     }
 }
