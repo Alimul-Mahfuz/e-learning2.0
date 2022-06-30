@@ -70,7 +70,7 @@ class teacherController extends Controller
 
     function logout()
     {
-        session()->forget('user');
+        session()->forget('username');
         session()->forget('email');
         session()->forget('account_id');
         return redirect()->route('login');
@@ -105,5 +105,25 @@ class teacherController extends Controller
         } else {
             return redirect()->back()->with('error', 'Current Password Not Matched!');
         }
+    }
+
+    function profilePicturesubmit(Request $req)
+    {
+        $this->validate($req, [
+            "profile_image" => "required|image|mimes:jpeg,png,jpg,gif,svg"
+        ]);
+
+        $teacherinfo = Teacher::where('email', session('email'))->first();
+
+        $name =  $req->file('profile_image')->getClientOriginalName();
+        $name =  'Teacher_id' . $teacherinfo->account_id;
+        //dd($teacherinfo);
+        $ext = $req->file('profile_image')->getClientOriginalExtension();
+        $path = "profile_images/";
+        $file_name  = time() . "_$name." . $ext;
+        $req->file('profile_image')->storeAs('public/' . $path, $file_name);
+        $teacherinfo->profile_image = 'storage/' . $path . $file_name;
+        $teacherinfo->save();
+        return redirect()->route('teacherProfile')->with('img_path', $teacherinfo->profile_image);
     }
 }
