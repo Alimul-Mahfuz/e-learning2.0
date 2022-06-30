@@ -8,7 +8,7 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
+            <a class="nav-link active" aria-current="page" href="{{route('stddash')}}">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Features</a>
