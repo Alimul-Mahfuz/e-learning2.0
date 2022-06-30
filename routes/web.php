@@ -51,6 +51,8 @@ Route::post('/Coordinator/register',[coor_controller::class,'submit_register'])-
 Route::get('/Coordinator/home',[coor_controller::class,'coor_home'])->name('coor_home');
 Route::get('/Coordinator/coor_profile',[coor_controller::class,'coor_profile'])->name('coor_profile')->middleware("logincheck");
 Route::get('/logout',[coor_controller::class,'logout'])->name('logout');
+Route::get('/Coordinator/coor_new_course',[coor_controller::class,'newcourse'])->name('newcourse');
+Route::post('/Coordinator/coor_new_course',[coor_controller::class,'newcourse_submit'])->name('newcourse');
 
 // Coordinator end
 

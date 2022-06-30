@@ -86,9 +86,38 @@ class coor_controller extends Controller
     function coor_profile(Request $req)
     {
         // $coordinator = coordinator::where("email", session("email") )->first();
-        $coordinator = coordinator::where("email", session("coordinatorEmail") )->first();
+        $coor_obj1 = coordinator::where("email", session("coordinatorEmail") )->first();
+        $coor_obj2 = Account::where("email", session("coordinatorEmail") )->first();
         return view("coordinator.coor_profile")
-                ->with("coordinator", $coordinator);
+                ->with("coordinator", $coor_obj1)
+                ->with("account", $coor_obj2);
+    }
+
+
+    function update_profile(Request $req)
+    {
+
+    }
+
+
+    function newcourse()
+    {
+        return view("coordinator.coor_new_course");
+    }
+
+    function newcourse_submit(Request $req)
+    {
+        $this->validate(
+            $req,
+            [
+                "coursename" => "required ",
+                "courseprice" => "required | regex:/^[0-9]+$/i",
+                "catagory" => "required ",
+                "capacity" => "required ",
+                "duration" => "required "
+            ],
+        );
+        return redirect()->route('coor_profile');
     }
 
 
