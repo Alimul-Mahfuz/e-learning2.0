@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Teacher;
 use App\Models\Account;
 use App\Models\coordinator;
+use App\Models\course;
 use App\Models\Qualification;
 use Illuminate\Http\Request;
 
@@ -45,7 +46,7 @@ class coor_controller extends Controller
                 "zip" => "required|",
                 "password" => "required|string|min:8",
                 "con_password" => "required|same:password",
-                "pro_pic" =>"required|mimes:png,jpg,gif",
+                "pro_pic" =>"required|image|mimes:jpeg,png,jpg,gif,svg",
                 "type" => "required"
             ],
         );
@@ -53,7 +54,7 @@ class coor_controller extends Controller
 
         $name =  $req->file('pro_pic')->getClientOriginalName();
         $ext = $req->file('pro_pic')->getClientOriginalExtension();
-        $path = "profile_images/";
+        $path = "profile_images/coordinator/";
         $file_name  = time()."_$name";
         $req->file('pro_pic')->storeAs('public/'.$path,$file_name);
 
@@ -117,7 +118,41 @@ class coor_controller extends Controller
                 "duration" => "required "
             ],
         );
-        return redirect()->route('coor_profile');
+
+        $course = new course();
+
+        $course->course_name = $req->coursename;
+        $course->price = $req->courseprice;
+        $course->catagory = $req->catagory;
+        $course->student_count = $req->capacity;
+        $course->duration = $req->duration;
+
+        $course->save();
+
+        return redirect()->route('activecourse');
+    }
+
+
+    function activecourse()
+    {
+        $course = course::all();
+        return view('coordinator.coor_act_course')
+                    ->with('course', $course);
+    }
+
+
+    function teacher()
+    {
+        $teacher = teacher::all();
+        return view('coordinator.coor_teach')
+                    ->with('teacher', $teacher);
+    }
+
+    function student()
+    {
+        $student = course::all();
+        return view('coordinator.coor_std')
+                    ->with('student', $student);
     }
 
 

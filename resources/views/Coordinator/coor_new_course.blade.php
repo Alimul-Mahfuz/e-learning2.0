@@ -6,7 +6,7 @@
 		<title>Lunch Couse</title>
 	</head>
 	<body>
-		@extends('layouts.coordinator_nav')
+		@extends('layouts.coordinator_nav2')
 		@section('content')
 		<form action="" method="post"  enctype="multipart/form-data">
 			{{csrf_field()}}

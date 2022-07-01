@@ -16,13 +16,13 @@
 				</div>
 				<ul class="nav navbar-nav">
 					<li><a href="{{route('coor_home')}}">Home</a></li>
-					<li><a href="{{route('newcourse')}}">Lunch Course</a></li>
+					<li><a href="{{route('newcourse')}}">New Course</a></li>
 					
 					
 					<li><a href="#">Offer</a></li>
-					<li><a href="#">Running Courses</a></li>
+					<li><a href="{{route('activecourse')}}">Active Course</a></li>
 					
-					<li><a href="{{route('coor_profile')}}">Coordinator Profile</a></li>
+					<li><a href="{{route('coor_profile')}}">{{session('coordinatorName')}}</a></li>
 					<li><a href="{{route('logout')}}">Log out</a></li>
 				</ul>
 				<form class="navbar-form navbar-left" action="/action_page.php">

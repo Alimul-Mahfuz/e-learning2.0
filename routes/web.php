@@ -52,7 +52,10 @@ Route::get('/Coordinator/home',[coor_controller::class,'coor_home'])->name('coor
 Route::get('/Coordinator/coor_profile',[coor_controller::class,'coor_profile'])->name('coor_profile')->middleware("logincheck");
 Route::get('/logout',[coor_controller::class,'logout'])->name('logout');
 Route::get('/Coordinator/coor_new_course',[coor_controller::class,'newcourse'])->name('newcourse');
+Route::get('/Coordinator/coor_act_course',[coor_controller::class,'activecourse'])->name('activecourse');
 Route::post('/Coordinator/coor_new_course',[coor_controller::class,'newcourse_submit'])->name('newcourse');
+Route::get('/Coordinator/coor_teacher',[coor_controller::class,'teacher'])->name('teacher');
+Route::get('/Coordinator/coor_student',[coor_controller::class,'student'])->name('student');
 
 // Coordinator end
 

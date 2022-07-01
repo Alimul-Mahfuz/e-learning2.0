@@ -1,4 +1,4 @@
-@extends('layouts.coordinator_nav')
+@extends('layouts.coordinator_nav2')
 @section('content')
 
 <html>
