@@ -126,4 +126,15 @@ class teacherController extends Controller
         $teacherinfo->save();
         return redirect()->route('teacherProfile')->with('img_path', $teacherinfo->profile_image);
     }
+
+    // function courseDetails(){
+    //     $teachers = Teacher::orderBy('teacher_id')->take(5)->get();
+    //     return view("Teacher.Course_Details", compact('teachers'));
+    // }
+
+    function studentList(){
+        $teachers = Teacher::orderBy('teacher_id')->take(2)->get();
+        $teachers = Teacher::paginate(2);
+        return view("Teacher.Course_Details", compact('teachers'));
+    }
 }

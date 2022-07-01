@@ -19,48 +19,48 @@
   <div class="row my-5">
     <div class="col-sm-3">
       <div class="card mx-4" style="width: 18rem;">
-        <img src="{{ asset('images/AI.jpg') }}" class="card-img-top" alt="Card image cap">
+        <img src="{{ asset('images/courseImage/AI.jpg') }}" class="card-img-top" alt="Card image cap">
 
         <div class="card-body">
           <h5 class="card-title">Artificial Intelligence</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="{{route('studentList')}}" class="btn btn-primary">View</a>
         </div>
       </div>
 
     </div>
     <div class="col-sm-3">
       <div class="card mx-4" style="width: 18rem;">
-        <img src="{{ asset('images/CN.webp') }}" class="card-img-top" alt="Card image cap">
+        <img src="{{ asset('images/courseImage/CN.webp') }}" class="card-img-top" alt="Card image cap">
 
         <div class="card-body">
           <h5 class="card-title">Computer Network</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="#" class="btn btn-primary">View</a>
         </div>
       </div>
     </div>
 
     <div class="col-sm-3">
       <div class="card mx-4" style="width: 18rem;">
-        <img src="{{ asset('images/WT.webp') }}" class="card-img-top" alt="Card image cap">
+        <img src="{{ asset('images/courseImage/WT.webp') }}" class="card-img-top" alt="Card image cap">
 
         <div class="card-body">
           <h5 class="card-title">Web Technology</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="#" class="btn btn-primary">View</a>
         </div>
       </div>
     </div>
 
     <div class="col-sm-3">
       <div class="card mx-4" style="width: 18rem;">
-        <img src="{{ asset('images/Python.webp') }}" class="card-img-top" alt="Card image cap">
+        <img src="{{ asset('images/courseImage/Python.webp') }}" class="card-img-top" alt="Card image cap">
 
         <div class="card-body">
           <h5 class="card-title">Programming in Python</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="#" class="btn btn-primary">View</a>
         </div>
       </div>
     </div>
@@ -72,49 +72,49 @@
   <div class="row my-5">
     <div class="col-sm-3">
       <div class="card mx-4" style="width: 18rem;">
-        <img src="{{ asset('images/Java.png') }}" class="card-img-top" alt="Card image cap">
+        <img src="{{ asset('images/courseImage/Java.png') }}" class="card-img-top" alt="Card image cap">
 
         <div class="card-body">
           <h5 class="card-title">Programming in Java</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="#" class="btn btn-primary">View</a>
         </div>
       </div>
 
     </div>
     <div class="col-sm-3">
       <div class="card mx-4" style="width: 18rem;">
-        <img src="{{ asset('images/WD.jpg') }}" class="card-img-top" alt="Card image cap">
+        <img src="{{ asset('images/courseImage/WD.jpg') }}" class="card-img-top" alt="Card image cap">
 
         <div class="card-body">
           <h5 class="card-title">Web Development</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="#" class="btn btn-primary">View</a>
         </div>
       </div>
     </div>
 
     <div class="col-sm-3">
       <div class="card mx-4" style="width: 18rem;">
-        <img src="{{ asset('images/CSh.jfif') }}" class="card-img-top" alt="Card image cap">
+        <img src="{{ asset('images/courseImage/CSh.jfif') }}" class="card-img-top" alt="Card image cap">
         
 
         <div class="card-body">
           <h5 class="card-title">Programming in C#</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="#" class="btn btn-primary">View</a>
         </div>
       </div>
     </div>
 
     <div class="col-sm-3">
       <div class="card mx-4" style="width: 18rem;">
-        <img src="{{ asset('images/NS.png') }}" class="card-img-top" alt="Card image cap">
+        <img src="{{ asset('images/courseImage/NS.png') }}" class="card-img-top" alt="Card image cap">
 
         <div class="card-body">
           <h5 class="card-title">Network Security</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="#" class="btn btn-primary">View</a>
         </div>
       </div>
     </div>

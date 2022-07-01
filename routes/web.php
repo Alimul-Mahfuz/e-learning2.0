@@ -45,4 +45,7 @@ Route::get('/teacher/register',[teacherController::class,'teacherRegistration'])
 Route::post('/teacher/register',[teacherController::class,'createSubmit'])->name('CreateSubmit');
 Route::get('/teacher/home',[teacherController::class,'teacherHome'])->name('teacherHome');
 
+// Route::get('/course/details',[teacherController::class,'courseDetails'])->name('courseDetails');
+Route::get('/course/details',[teacherController::class,'studentList'])->name('studentList');
+
 
