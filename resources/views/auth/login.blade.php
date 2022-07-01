@@ -34,6 +34,11 @@
                   <span class="text-danger">{{$message}}</span>
                       
                   @enderror
+                  <div>
+                    @if (session('Faild'))
+                    <span class="text-danger">{{ session('Faild') }}</span>
+                    @endif
+                  </div>
                 </div>
                 <div class="form-check">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -48,7 +53,7 @@
 
                 <br>
                 <div class="noaccount">
-                    Don't have an account yet?
+                    Want to be a teacher?
                     <a href="{{route('teacherRegistration')}}">Teacher Register Here</a>
                 </div>
 
