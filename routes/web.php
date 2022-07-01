@@ -6,6 +6,12 @@ use App\Http\Controllers\teacherController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\StudentAuthController;
 
+// Coordinator start
+
+use App\Http\Controllers\coor_controller;
+
+// Coordinator end
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,5 +50,29 @@ Route::get('/student/changepass',[PagesController::class,'changepassword'])->nam
 Route::get('/teacher/register',[teacherController::class,'teacherRegistration'])->name('teacherRegistration');
 Route::post('/teacher/register',[teacherController::class,'createSubmit'])->name('CreateSubmit');
 Route::get('/teacher/home',[teacherController::class,'teacherHome'])->name('teacherHome');
+
+
+
+
+
+// Coordinator start
+
+Route::get('/Coordinator/register',[coor_controller::class,'fill_register'])->name('fill_register');
+Route::post('/Coordinator/register',[coor_controller::class,'submit_register'])->name('submit_register');
+Route::get('/Coordinator/home',[coor_controller::class,'coor_home'])->name('coor_home');
+Route::get('/Coordinator/coor_profile',[coor_controller::class,'coor_profile'])->name('coor_profile')->middleware("logincheck");
+Route::get('/logout',[coor_controller::class,'logout'])->name('logout');
+Route::get('/Coordinator/coor_new_course',[coor_controller::class,'newcourse'])->name('newcourse');
+Route::get('/Coordinator/coor_act_course',[coor_controller::class,'activecourse'])->name('activecourse');
+Route::post('/Coordinator/coor_new_course',[coor_controller::class,'newcourse_submit'])->name('newcourse');
+Route::get('/Coordinator/coor_teacher',[coor_controller::class,'teacher'])->name('teacher');
+Route::get('/Coordinator/coor_student',[coor_controller::class,'student'])->name('student');
+
+// Coordinator end
+
+
+
+
+
 
 

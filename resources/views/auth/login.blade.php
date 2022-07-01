@@ -56,6 +56,12 @@
                     Want to be a teacher?
                     <a href="{{route('teacherRegistration')}}">Teacher Register Here</a>
                 </div>
+
+                <br>
+                <div class="noaccount">
+                    Don't have an account yet?
+                    <a href="{{route('fill_register')}}">Coordinator Register Here</a>
+                </div>
               </form>
         </div>
     </div>
