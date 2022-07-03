@@ -54,16 +54,17 @@ class AuthController extends Controller
                 return \back()->with('Faild', 'Login Faild email or password error');
             }
         }
+    }
             }
 
             // For Coordinator login
             if($acct->type==4){
+                if (!empty($acct)) {
                 $coor_info=Coordinator::where('account_id',$acct->account_id)->first();
                 $req->session()->put('coordinatorName', $coor_info->coor_name);
                 $req->session()->put('coordinatorEmail', $coor_info->email);
                 return redirect()->route('coor_home');
-            }
-            
+            }        
         }
         else{
             return back()->with('Faild','Login Faild email or password error');

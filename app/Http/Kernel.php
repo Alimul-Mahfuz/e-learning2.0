@@ -63,6 +63,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'teache.profile'=> \App\Http\Middleware\TeacherLogged::class,
         // Coordinator middleware start
         'logincheck' => \App\Http\Middleware\coor_log_check::class,
         // Coordinator middleware end

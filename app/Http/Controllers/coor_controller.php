@@ -7,6 +7,7 @@ use App\Models\Teacher;
 use App\Models\Account;
 use App\Models\coordinator;
 use App\Models\course;
+use App\Models\Student;
 use App\Models\Qualification;
 use Illuminate\Http\Request;
 
@@ -115,9 +116,16 @@ class coor_controller extends Controller
                 "courseprice" => "required | regex:/^[0-9]+$/i",
                 "catagory" => "required ",
                 "capacity" => "required ",
-                "duration" => "required "
+                "duration" => "required ",
+                 "course_pro_pic" =>"required|image|mimes:jpeg,png,jpg,gif,svg",
             ],
         );
+
+        $name =  $req->file('course_pro_pic')->getClientOriginalName();
+        $ext = $req->file('course_pro_pic')->getClientOriginalExtension();
+        $path = "profile_images/courses/";
+        $file_name  = time()."_$name";
+        $req->file('course_pro_pic')->storeAs('public/'.$path,$file_name);
 
         $course = new course();
 
@@ -126,6 +134,8 @@ class coor_controller extends Controller
         $course->catagory = $req->catagory;
         $course->student_count = $req->capacity;
         $course->duration = $req->duration;
+
+        $course->profile_image = 'storage/'.$path.$file_name;
 
         $course->save();
 
@@ -150,7 +160,7 @@ class coor_controller extends Controller
 
     function student()
     {
-        $student = course::all();
+        $student = student::all();
         return view('coordinator.coor_std')
                     ->with('student', $student);
     }

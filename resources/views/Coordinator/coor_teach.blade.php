@@ -27,7 +27,8 @@
 				@foreach($teacher as $t)
 				<tr>
 					<th scope="row">{{$loop->iteration}}</th>
-					<td><img src="{{$t->profile_image}}" alt="{{$t->teacher_name}} Profile Image"></td>
+					<!-- <td><img src="{{$t->profile_image}}" alt="{{$t->teacher_name}} Profile Image" height="100px" width="100px"></td> -->
+					<td><img src="{{url('images/test_img.png')}}" alt="{{$t->teacher_name}} Profile Image" height="100px" width="100px"></td>
 					<td>{{$t->teacher_name}}</td>
 					<td>{{$t->email}}</td>
 					<td>{{$t->phone}}</td>

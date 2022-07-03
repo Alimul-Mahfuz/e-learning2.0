@@ -12,6 +12,7 @@
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">sl#</th>
+					<th scope="col">Course Image</th>
 					<th scope="col">Course Name</th>
 					<th scope="col">Price</th>
 					<th scope="col">Catagory</th>
@@ -24,6 +25,7 @@
 				@foreach($course as $c)
 				<tr>
 					<th scope="row">{{$loop->iteration}}</th>
+					<td><img src="{{asset($c->profile_image)}}" alt="{{$c->course_name}} Profile Image" height="100px" width="100px"></td>
 					<td>{{$c->course_name}}</td>
 					<td>{{$c->price}}</td>
 					<td>{{$c->catagory}}</td>
