@@ -12,7 +12,7 @@
 		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand active" href="{{route('coor_home')}}">Coordinator</a>
+					<a class="navbar-brand active" >Coordinator</a>
 				</div>
 				<ul class="nav navbar-nav">
 					<li class=""><a href="{{route('coor_home')}}">Home</a></li>
@@ -28,6 +28,7 @@
 
 					<li class=""><a href="{{route('teacher')}}">Teacher</a></li>
 					<li class=""><a href="{{route('student')}}">Student</a></li>
+					<li class=""><a href="{{route('changepassword')}}">Change Password</a></li>
 				
 			</ul>
 			

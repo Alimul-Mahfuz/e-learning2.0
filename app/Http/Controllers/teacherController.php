@@ -41,7 +41,7 @@ class teacherController extends Controller
                 "city" => "required|",
                 "division" => "required|in:Dhaka,Khulna,Barisal,Chittagong,Mymensingh,Rajshahi,Sylhet,Rangpur",
                 "zip" => "required|",
-                "password" => "required|string|min:8|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/",
+                "password" => "required|string|min:8",
                 "con_password" => "required|same:password"
             ],
         );

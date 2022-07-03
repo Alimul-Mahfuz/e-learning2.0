@@ -67,6 +67,8 @@ Route::get('/Coordinator/coor_act_course',[coor_controller::class,'activecourse'
 Route::post('/Coordinator/coor_new_course',[coor_controller::class,'newcourse_submit'])->name('newcourse');
 Route::get('/Coordinator/coor_teacher',[coor_controller::class,'teacher'])->name('teacher');
 Route::get('/Coordinator/coor_student',[coor_controller::class,'student'])->name('student');
+Route::get('/Coordinator/coor_cngpass',[coor_controller::class,'changepassword'])->name('changepassword');
+Route::post('/Coordinator/coor_cngpass',[coor_controller::class,'changepassword_submit'])->name('changepassword_submit');
 
 // Coordinator end
 

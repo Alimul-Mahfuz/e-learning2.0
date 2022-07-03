@@ -14,18 +14,37 @@
 				<label for="inputEmail3" class="col-sm-2 col-form-label">Course Name</label>
 				<div class="col-sm-5">
 					<input type="text" class="form-control" name="coursename" id="coursename" placeholder="Enter course name">
+					@error('coursename')
+                        <span class="text-danger">{{$message}}</span><br>
+                     @enderror
+				</div>
+			</div>
+			<!-- COurse pic  -->
+			<div class="form-group row">
+				<label   class="col-sm-2 col-form-label">Images</label>
+				<div class="col-sm-5">
+                        <input type="file" value="{{old('pro_pic')}}" name="course_pro_pic" class="form-control" id="course_pro_pic" placeholder="Set a Course Bannner">
+                        @error('pro_pic')
+                        <span class="text-danger">{{$message}}</span><br>
+                        @enderror
 				</div>
 			</div>
 			<div class="form-group row">
 				<label for="inputPassword3" class="col-sm-2 col-form-label">Price</label>
 				<div class="col-sm-5">
 					<input type="text" class="form-control" name="courseprice" id="courseprice" placeholder="Course cost in tk/-">
+					@error('courseprice')
+                        <span class="text-danger">{{$message}}</span><br>
+                        @enderror
 				</div>
 			</div>
 			<div class="form-group row">
 				<label for="inputPassword3" class="col-sm-2 col-form-label">Catagory</label>
 				<div class="col-sm-5">
 					<input type="text" class="form-control" name="catagory" id="catagory" placeholder="Catagory">
+					@error('catagory')
+                        <span class="text-danger">{{$message}}</span><br>
+                        @enderror
 				</div>
 			</div>
 			<fieldset class="form-group">
@@ -62,7 +81,12 @@
 								Third disabled radio
 							</label>
 						</div>
- -->					</div>
+
+ -->					
+ 						@error('capacity')
+                        	<span class="text-danger">{{$message}}</span><br>
+                        @enderror
+					</div>
 				</div>
 			</fieldset>
 
