@@ -166,6 +166,42 @@ class coor_controller extends Controller
     }
 
 
+    function changepassword()
+    {
+        return view('coordinator.coor_cngpass');
+    }
+
+    function changepassword_submit(Request $req)
+    {
+        
+
+        $this->validate(
+                $req,
+                [   
+                    'cpass'=>'required',
+                    'npass'=>'required',
+                    'conpass'=>'required|same:npass',
+                ],
+            );
+
+            $acc=Account::where('email',session('email'))->first();
+
+
+            if($req->cpass == $acc->password)
+            {
+                $acc->password = $req->conpass;
+                $acc->save();
+                
+            }
+
+            return redirect()->route("coor_profile");
+        
+
+
+    }
+        
+
+
     function logout()
     {
         // session()->forget('coordinatorEmail','coodinatorName');

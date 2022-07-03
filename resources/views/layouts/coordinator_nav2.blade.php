@@ -28,6 +28,7 @@
 
 					<li class=""><a href="{{route('teacher')}}">Teacher</a></li>
 					<li class=""><a href="{{route('student')}}">Student</a></li>
+					<li class=""><a href="{{route('changepassword')}}">Change Password</a></li>
 				
 			</ul>
 			
