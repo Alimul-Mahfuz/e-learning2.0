@@ -27,6 +27,12 @@ class PagesController extends Controller
         return redirect()->route('home');
     }
 
+    
+
+
+
+
+
     function changepassword(){
         return view('student.changepass');
     }

@@ -1,7 +1,7 @@
 
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid d-flex">
-      <a class="navbar-brand" href="#">E-Learning</a>
+      <a class="navbar-brand" href="{{route('stddash')}}">E-Learning</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -16,9 +16,7 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Pricing</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Profile</a>
-          </li>
+
           <li class="nav-item">
             <a style="color: white" class="nav-link btn btn-danger" href="{{route('stdlogout')}}">Logout</a>
           </li>

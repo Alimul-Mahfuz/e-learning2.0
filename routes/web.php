@@ -29,8 +29,7 @@ Route::post('/student/register',[StudentAuthController::class,'studentreg'])->na
 Route::get('/student/dashboard',[PagesController::class,'studentdash'])->name('stddash');
 Route::get('/student/logout',[PagesController::class,'studentlogout'])->name('stdlogout');
 Route::get('/student/profile',[StudentAuthController::class,'StdviewProfile'])->name('stdprofile');
-Route::post('/student/changepass',[StudentAuthController::class,'changepassword'])->name('chngpass');
-Route::get('/student/changepass',[PagesController::class,'changepassword'])->name('chngpass');
+Route::post('/student/passwordchange',[StudentAuthController::class,'changepassword'])->name('changepass');
 
 
 
