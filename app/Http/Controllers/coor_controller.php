@@ -19,7 +19,19 @@ class coor_controller extends Controller
 
     function coor_home()
     {
-        return view('coordinator.coor_home');
+        $teacher = Teacher::all();
+        $student = Student::all();
+        $course = Course::all();
+        $account = Account::all();
+        $teacherCount = $teacher->count();
+        $studentCount = $student->count();
+        $courseCount = $course->count();
+        $accountCount = $account->count();
+        return view('coordinator.coor_home')
+                ->with("teacherCount", $teacherCount)
+                ->with("studentCount", $studentCount)
+                ->with("courseCount", $courseCount)
+                ->with("accountCount", $accountCount);
     }
 
     function fill_register()
@@ -145,9 +157,13 @@ class coor_controller extends Controller
 
     function activecourse()
     {
-        $course = course::all();
+       /* $course = course::all();
         return view('coordinator.coor_act_course')
-                    ->with('course', $course);
+                    ->with('course', $course);*/
+
+        $course = course::paginate(3);
+        return view("coordinator.coor_act_course")
+                    ->with("course", $course);
     }
 
 
@@ -166,37 +182,56 @@ class coor_controller extends Controller
     }
 
 
-    function changepassword()
+    function coordinatorChangepassword()
     {
         return view('coordinator.coor_cngpass');
     }
 
-    function changepassword_submit(Request $req)
+    public function coordinatorUpdatepassword(Request $request)
     {
-        
+        $request->validate([
+            'cpass' => 'required',
+            'npass' => 'required|min:8',
+            'conpass' => 'required|min:8|same:npass',
+        ],
+        [
+            'cpass' => "Incorrect curent password"
+        ]    
+    );
 
-        $this->validate(
-                $req,
-                [   
-                    'cpass'=>'required',
-                    'npass'=>'required',
-                    'conpass'=>'required|same:npass',
-                ],
-            );
+        $user = Account::where("email", session("coordinatorEmail") )->first();
 
-            $acc=Account::where('email',session('email'))->first();
+        if ($request->cpass === $user->password) {
+            $user->password = $request->conpass;
+            $user->save();
+
+            return redirect()->route('coor_profile')->with('Success', 'Password Changed Successfully');
+        } else {
+            return redirect()->back()->with('error', 'Current Password Not Matched!');
+        }
+    }
 
 
-            if($req->cpass == $acc->password)
-            {
-                $acc->password = $req->conpass;
-                $acc->save();
-                
-            }
+    function courseRemove($course_id)
+    {
+        $course = course::find($course_id)->delete();
+        return redirect()->route("activecourse");
 
-            return redirect()->route("coor_profile");
-        
+    }
 
+
+    function teacherRemove($teacher_id)
+    {
+        $teacher = Teacher::find($teacher_id)->delete();
+        return redirect()->route("teacher");
+
+    }
+
+
+    function studentRemove($student_id)
+    {
+        $student = Student::find($student_id)->delete();
+        return redirect()->route("student");
 
     }
         

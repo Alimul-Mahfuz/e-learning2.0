@@ -17,18 +17,27 @@
 				<ul class="nav navbar-nav">
 					<li class=""><a href="{{route('coor_home')}}">Home</a></li>
 					<li><a href="{{route('coor_profile')}}">{{session('coordinatorName')}}</a></li>
+
 					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Course<span class="caret"></span></a>
 
-					<ul class="dropdown-menu">
-						<li><a href="{{route('activecourse')}}">Active Courses</a></li>
-						<li><a href="{{route('newcourse')}}">Create New Course</a></li>
-						<li><a href="#">About</a></li>
-					</ul>
+						<ul class="dropdown-menu">
+							<li><a href="{{route('activecourse')}}">Active Courses</a></li>
+							<li><a href="{{route('newcourse')}}">Create New Course</a></li>
+							<li><a href="#">About</a></li>
+						</ul>
 					</li>
 
 					<li class=""><a href="{{route('teacher')}}">Teacher</a></li>
 					<li class=""><a href="{{route('student')}}">Student</a></li>
-					<li class=""><a href="{{route('changepassword')}}">Change Password</a></li>
+					<!-- <li class=""><a href="{{route('changepassword')}}">Change Password</a></li> -->
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Setting<span class="caret"></span></a>
+
+						<ul class="dropdown-menu">
+							<li><a href="{{route('changepassword')}}">Change Password</a></li>
+							<!-- <li><a href="{{route('newcourse')}}">Create New Course</a></li> -->
+							<!-- <li><a href="#">About</a></li> -->
+						</ul>
+					</li>
 				
 			</ul>
 			

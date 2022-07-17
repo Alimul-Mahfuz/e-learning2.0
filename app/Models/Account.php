@@ -19,5 +19,9 @@ class Account extends Model
     function student(){
         return $this->hasOne(Student::class,'account_id','student_id');
     }
+    
+    function coordinator(){
+        return $this->hasOne(coordinator::class,'account_id','coor_id');
+    }
 
 }

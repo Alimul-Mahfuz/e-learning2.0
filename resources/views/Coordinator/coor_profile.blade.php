@@ -80,7 +80,7 @@
                             <!-- <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div> -->
                         </div>
                         <br>
-                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Changes</button></div>
+                        <!-- <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Changes</button></div> -->
                     </div>
                 </div>
                 <!-- <div class="col-md-4">

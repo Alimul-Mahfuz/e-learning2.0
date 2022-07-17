@@ -59,16 +59,20 @@ Route::get('/teacher/home',[teacherController::class,'teacherHome'])->name('teac
 
 Route::get('/Coordinator/register',[coor_controller::class,'fill_register'])->name('fill_register');
 Route::post('/Coordinator/register',[coor_controller::class,'submit_register'])->name('submit_register');
-Route::get('/Coordinator/home',[coor_controller::class,'coor_home'])->name('coor_home');
+Route::get('/Coordinator/home',[coor_controller::class,'coor_home'])->name('coor_home')->middleware("logincheck");
 Route::get('/Coordinator/coor_profile',[coor_controller::class,'coor_profile'])->name('coor_profile')->middleware("logincheck");
 Route::get('/logout',[coor_controller::class,'logout'])->name('logout');
-Route::get('/Coordinator/coor_new_course',[coor_controller::class,'newcourse'])->name('newcourse');
-Route::get('/Coordinator/coor_act_course',[coor_controller::class,'activecourse'])->name('activecourse');
-Route::post('/Coordinator/coor_new_course',[coor_controller::class,'newcourse_submit'])->name('newcourse');
-Route::get('/Coordinator/coor_teacher',[coor_controller::class,'teacher'])->name('teacher');
-Route::get('/Coordinator/coor_student',[coor_controller::class,'student'])->name('student');
-Route::get('/Coordinator/coor_cngpass',[coor_controller::class,'changepassword'])->name('changepassword');
-Route::post('/Coordinator/coor_cngpass',[coor_controller::class,'changepassword_submit'])->name('changepassword_submit');
+Route::get('/Coordinator/coor_new_course',[coor_controller::class,'newcourse'])->name('newcourse')->middleware("logincheck");
+Route::get('/Coordinator/coor_act_course',[coor_controller::class,'activecourse'])->name('activecourse')->middleware("logincheck");
+Route::post('/Coordinator/coor_new_course',[coor_controller::class,'newcourse_submit'])->name('newcourse')->middleware("logincheck");
+Route::get('/Coordinator/coor_teacher',[coor_controller::class,'teacher'])->name('teacher')->middleware("logincheck");
+Route::get('/Coordinator/coor_student',[coor_controller::class,'student'])->name('student')->middleware("logincheck");
+Route::get('/Coordinator/coor_cngpass',[coor_controller::class,'coordinatorChangepassword'])->name('changepassword')->middleware("logincheck");
+Route::post('/Coordinator/coor_cngpass',[coor_controller::class,'coordinatorUpdatepassword'])->name('changepassword_submit')->middleware("logincheck");
+Route::post('coordinator/course_remove/{course_id}',[coor_controller::class, 'courseRemove']);
+Route::post('coordinator/teacher_remove/{teacher_id}',[coor_controller::class, 'teacherRemove']);
+Route::post('coordinator/student_remove/{student_id}',[coor_controller::class, 'studentRemove']);
+
 
 // Coordinator end
 
